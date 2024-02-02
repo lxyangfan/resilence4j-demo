@@ -1,1 +1,1 @@
-GET localhost:8080/dummy?count=300
+GET localhost:8090/api/consumer/hello?count=10000

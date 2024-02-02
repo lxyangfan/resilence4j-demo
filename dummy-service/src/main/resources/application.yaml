@@ -9,3 +9,4 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 10s
       failureRateThreshold: 50
 
+

@@ -12,7 +12,7 @@ public class DummyService {
   @CircuitBreaker(name = "dummyService", fallbackMethod = "fallback")
   public String getRandomString(int count) {
     try {
-      if (count > 200) {
+      if (count > 30000) {
         throw new RuntimeException("count is too high");
       }
       Thread.sleep(count);
