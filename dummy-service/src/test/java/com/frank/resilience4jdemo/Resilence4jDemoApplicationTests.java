@@ -1,4 +1,4 @@
-package com.frank.resilence4jdemo;
+package com.frank.resilience4jdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
