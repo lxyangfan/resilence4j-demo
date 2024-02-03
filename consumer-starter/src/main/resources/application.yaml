@@ -2,10 +2,21 @@ server:
   port: 8090
 
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 5000
+            read-timeout: 50000
+            logger-level: basic
+
+resilience4j.ratelimiter:
+  instances:
+    dummy:
+      limitForPeriod: 200  # 周期内允许的请求数量
+      limitRefreshPeriod: 1s  # 限流周期
+      timeoutDuration: 3s # 请求超时，如果一个请求打过来，等待了这个时间内未执行则认为超时失败
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 100

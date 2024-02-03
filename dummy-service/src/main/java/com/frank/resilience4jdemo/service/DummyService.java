@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class DummyService {
 
+//  @CircuitBreaker(name = "dummyService")
   @CircuitBreaker(name = "dummyService", fallbackMethod = "fallback")
   public String getRandomString(int count) {
     try {
-      if (count > 30000) {
-        throw new RuntimeException("count is too high");
+      if (count % 5 == 0) {
+        throw new RuntimeException("Just fails");
       }
       Thread.sleep(count);
       return "Hello World!";
@@ -24,6 +25,6 @@ public class DummyService {
 
   public String fallback(int count, Throwable t) {
     log.warn("fallback called for count={} err {}", count, t.getMessage());
-    return "getRandomString Fallback for count= " + count;
+    return "fallback";
   }
 }
