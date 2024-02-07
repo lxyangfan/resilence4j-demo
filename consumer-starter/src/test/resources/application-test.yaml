@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    openfeign:
+      client:
+        refresh-enabled: true  # 允许动态修改url
+        config:
+          default:
+            connect-timeout: 5000
+            read-timeout: 50000
+            logger-level: basic
+          dummy-service:
+            url: http://localhost:18080  # 服务地址
+      lazy-attributes-resolution: true  # 懒加载

@@ -20,3 +20,11 @@ resilience4j.ratelimiter:
       timeoutDuration: 3s # 请求超时，如果一个请求打过来，等待了这个时间内未执行则认为超时失败
       registerHealthIndicator: true
       eventConsumerBufferSize: 100
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  # 开放所有端点
