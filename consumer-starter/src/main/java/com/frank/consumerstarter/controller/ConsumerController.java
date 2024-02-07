@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 消费服务
+ */
 @RestController
 @RequestMapping("/api/consumer")
 @RequiredArgsConstructor
@@ -18,6 +21,11 @@ public class ConsumerController {
 
     private final DummyServiceFeign dummyServiceFeign;
 
+    /**
+     * 调用hello
+     * @param count
+     * @return
+     */
     @RateLimiter(name="dummy")
     @GetMapping("/hello")
     public ResponseEntity<String> hello(@RequestParam int count) {

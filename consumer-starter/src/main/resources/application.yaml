@@ -1,7 +1,8 @@
 server:
   port: 8090
 
-
+dummy-service:
+    url: http://localhost:8080
 spring:
   cloud:
     openfeign:
@@ -9,7 +10,7 @@ spring:
         config:
           default:
             connect-timeout: 5000
-            read-timeout: 50000
+            read-timeout: 5000
             logger-level: basic
 
 resilience4j.ratelimiter:
