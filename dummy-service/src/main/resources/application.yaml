@@ -2,15 +2,24 @@ resilience4j.circuitbreaker:
   instances:
     dummyService:
       registerHealthIndicator: true
-      slidingWindowSize: 10
+      slidingWindowSize: 100
       sliding-window-type: COUNT_BASED
-      minimumNumberOfCalls: 5
+      minimumNumberOfCalls: 50
       permittedNumberOfCallsInHalfOpenState: 3
-      waitDurationInOpenState: 10s
+      waitDurationInOpenState: 5s
       failureRateThreshold: 50
 
+resilience4j.ratelimiter:
+  instances:
+    dummyService:
+      limitForPeriod: 200
+      limitRefreshPeriod: 1s
+      timeoutDuration: 1s
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 200
+
 dummyService:
-    url: http://localhost:8080
+  url: http://localhost:8080
 
 
 
